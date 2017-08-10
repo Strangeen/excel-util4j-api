@@ -1,26 +1,35 @@
 package online.dinghuiye.api.validation;
 
+import online.dinghuiye.api.entity.ResultStatus;
 import online.dinghuiye.api.entity.RowRecord;
 
 import java.util.List;
 
 /**
- * Created by Strangeen on 2017/8/3.
+ * <p>{@link RowRecord}验证接口</p>
+ * <p>验证不通过需要改变rowRecord的状态</p>
  *
- * 对rowRecord进行遍历，并检查，不通过改变rowRecord的状态
+ * @author Strangeen
+ * on 2017/8/3
  */
 public interface RowRecordValidator {
 
     /**
-     * 验证集合
-     * @param rowRecordList
+     * 验证{@link RowRecord}集合
+     *
+     * @param rowRecordList {@link RowRecord}集合
+     * @return true - 所有RowRecord验证成功{@link ResultStatus#SUCCESS}<br>
+     *         false - 至少有一个RowRecord验证失败{@link ResultStatus}
      */
-    void valid(List<RowRecord> rowRecordList);
+    boolean valid(List<RowRecord> rowRecordList);
 
     /**
-     * 验证单例
-     * @param rowRecord
+     * 验证{@link RowRecord}个体
+     *
+     * @param rowRecord {@link RowRecord}
+     * @return true - 所有RowRecord验证成功{@link ResultStatus#SUCCESS}<br>
+     *         false - 至少有一个RowRecord验证失败{@link ResultStatus}
      */
-    void valid(RowRecord rowRecord);
+    boolean valid(RowRecord rowRecord);
 
 }

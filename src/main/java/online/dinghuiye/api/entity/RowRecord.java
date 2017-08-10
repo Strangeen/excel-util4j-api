@@ -4,15 +4,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Strangeen on 2017/6/26.
+ * <p>核心类</p>
+ * <p>保存excel源数据、解析后的pojo实例、解析结果</p>
+ *
+ * @author Strangeen
+ * on 2017/6/26
  */
 public class RowRecord {
 
+    /**
+     * excel行号
+     */
     private int rowNo;
+    /**
+     * 解析结果
+     */
     private RowRecordHandleResult result;
 
-    private Map<String, String> excelRecordMap; // excel元数据map<表头名称, 单元格值>
-    private Map<Class<?>, Object> pojoRecordMap; // 数据实体map<实体class, 实体对象>
+    /**
+     * excel源数据 Map&lt;表头名称, 单元格值&gt;
+     */
+    private Map<String, Object> excelRecordMap;
+    /**
+     * pojo实例 Map&lt;pojo class, pojo实例&gt;
+     */
+    private Map<Class<?>, Object> pojoRecordMap;
 
     public RowRecordHandleResult getResult() {
         return result;
@@ -30,11 +46,11 @@ public class RowRecord {
         this.rowNo = rowNo;
     }
 
-    public Map<String, String> getExcelRecordMap() {
+    public Map<String, Object> getExcelRecordMap() {
         return excelRecordMap;
     }
 
-    public void setExcelRecordMap(Map<String, String> excelRecordMap) {
+    public void setExcelRecordMap(Map<String, Object> excelRecordMap) {
         this.excelRecordMap = excelRecordMap;
     }
 
@@ -47,37 +63,40 @@ public class RowRecord {
     }
 
     /**
-     * 写入元数据map
+     * 写入源数据map
+     *
      * @param key 表头名称
      * @param value 单元格值
      * @return map中对应key原有的值，如果没有值则返回null
      */
-    public String set(String key, String value) {
-        if (excelRecordMap == null) excelRecordMap = new HashMap<String, String>();
-        String lastValue = excelRecordMap.get(key);
+    public Object set(String key, Object value) {
+        if (excelRecordMap == null) excelRecordMap = new HashMap<>();
+        Object lastValue = excelRecordMap.get(key);
         excelRecordMap.put(key, value);
         return lastValue;
     }
 
-    public String get(String key) {
+    public Object get(String key) {
         if (excelRecordMap != null)
             return excelRecordMap.get(key);
         return null;
     }
 
     /**
-     * 写入实体map
-     * @param pojo 实体class名称
-     * @param obj 实体对象
+     * 写入pojo实例map
+     *
+     * @param pojo pojo class
+     * @param obj 实例对象
      * @return map中对应key原有的值，如果没有值则返回null
      */
     public Object set(Class<?> pojo, Object obj) {
-        if (pojoRecordMap == null) pojoRecordMap = new HashMap<Class<?>, Object>();
+        if (pojoRecordMap == null) pojoRecordMap = new HashMap<>();
         Object lastValue = pojoRecordMap.get(pojo);
         pojoRecordMap.put(pojo, obj);
         return lastValue;
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T get(Class<T> pojo) {
         if (pojoRecordMap != null)
             return (T) pojoRecordMap.get(pojo);

@@ -2,9 +2,13 @@ package online.dinghuiye.api.resolution.convert;
 
 import java.lang.reflect.Field;
 import java.util.Map;
+import online.dinghuiye.api.annotation.convert.Convert;
 
 /**
- * Created by Strangeen on 2017/6/27.
+ * 转换器接口，自定义转换注解{@link Convert}的实现类都需要实现该接口
+ *
+ * @author Strangeen
+ * on 2017/6/27
  */
 public interface Convertor {
 

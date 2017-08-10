@@ -1,12 +1,16 @@
 package online.dinghuiye.api.entity;
 
 /**
- * 每行的解析和检查结果
+ * {@link RowRecord}的解析和检查结果
+ *
+ * @author Strangeen
+ * on 2017/06/26
  */
 public class RowRecordHandleResult {
 
 	private ResultStatus result;
-	// 多条消息以";"分隔
+
+	// 当前实现：多条消息以";"分隔
 	private String msg;
 
 	public RowRecordHandleResult(ResultStatus result, String msg) {
@@ -18,16 +22,18 @@ public class RowRecordHandleResult {
 		return result;
 	}
 
-	public void setResult(ResultStatus result) {
+	public RowRecordHandleResult setResult(ResultStatus result) {
 		this.result = result;
+		return this;
 	}
 
 	public String getMsg() {
 		return msg;
 	}
 
-	public void setMsg(String msg) {
+	public RowRecordHandleResult setMsg(String msg) {
 		this.msg = msg;
+		return this;
 	}
 
 	@Override

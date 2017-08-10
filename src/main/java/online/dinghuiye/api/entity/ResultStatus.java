@@ -1,16 +1,24 @@
 package online.dinghuiye.api.entity;
 
+/**
+ * {@link RowRecord}解析状态
+ *
+ * @author Strangeen
+ * on 2017/06/26
+ */
 public enum ResultStatus {
 
-	SUCCESS("成功"), FAIL("失败"), NOATTEPT("未处理");
-	
-	private String text;
-	
-	private ResultStatus(String text) {
-		this.text = text;
-	}
-	
-	public String getText() {
-		return this.text;
-	}
+	/**
+	 * 成功
+	 */
+	SUCCESS,
+	/**
+	 * 失败
+	 */
+	FAIL,
+	/**
+	 * 未处理
+	 */
+	NOATTEPT
+
 }
