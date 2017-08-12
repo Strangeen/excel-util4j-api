@@ -19,7 +19,7 @@ public interface Convertor {
      * @param excelRecordMap excel元数据map<表头名称, 单元格值>（预留参数）
      * @return 转换后的值
      */
-    Object convert(Object obj, Field field, Map<String, String> excelRecordMap);
+    Object convert(Object obj, Field field, Map<String, Object> excelRecordMap);
 
     //<T> T getInstance();
 }

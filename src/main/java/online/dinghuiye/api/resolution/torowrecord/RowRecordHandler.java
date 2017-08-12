@@ -36,11 +36,11 @@ public interface RowRecordHandler {
 
 
     /**
-     * convert前创建rowRocord
+     * 创建{@link RowRecord}，初始化基础数据
      *
-     * @param excelRowData excel每行的数据Map
+     * @param excelRowData excel行数据
+     * @param row excel行号
      * @return {@link RowRecord}对象
      */
     RowRecord rowRecordCreate(Map<String, Object> excelRowData, Integer row);
-    //RowRecord rowRecordCreate(Map<String, String> excelRowData, Integer row);
 }
