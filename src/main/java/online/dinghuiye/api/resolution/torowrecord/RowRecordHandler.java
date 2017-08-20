@@ -18,7 +18,8 @@ public interface RowRecordHandler {
      * 将excel数据convert，解析pojo，存入rowRocord
      *
      * @param rowRecordList 仅包含excel数据的rowRecord的list
-     * @param pojos 数据对应的pojo
+     * @param pojos 数据对应的pojo，
+     *              值得注意的是：如果pojo并没有数据，并不能将pojo对象引用指向null，而是pojo对象中的属性均为null
      * @return true - 所有RowRecord解析成功{@link ResultStatus#SUCCESS}<br>
      *         false - 至少有一个RowRecord解析失败{@link ResultStatus}
      */
