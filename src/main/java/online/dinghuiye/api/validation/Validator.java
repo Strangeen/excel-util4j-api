@@ -3,7 +3,6 @@ package online.dinghuiye.api.validation;
 import online.dinghuiye.api.annotation.validate.Validate;
 
 import java.lang.reflect.Field;
-import java.util.Map;
 
 /**
  * 验证器接口，自定义验证注解{@link Validate}的实现类都需要实现该接口

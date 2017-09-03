@@ -1,14 +1,17 @@
-package online.dinghuiye.api.resolution.convert;
+package online.dinghuiye.api.resolution;
+
+import online.dinghuiye.api.annotation.convert.Convert;
 
 import java.lang.reflect.Field;
 import java.util.Map;
-import online.dinghuiye.api.annotation.convert.Convert;
 
 /**
  * 转换器接口，自定义转换注解{@link Convert}的实现类都需要实现该接口
  *
- * @author Strangeen
- * on 2017/6/27
+ * @author Strangeen on 2017/6/27
+ *
+ * @author Strangeen on 2017/9/3
+ * @version 2.1.0
  */
 public interface Convertor {
 
@@ -21,5 +24,4 @@ public interface Convertor {
      */
     Object convert(Object obj, Field field, Map<String, Object> excelRecordMap);
 
-    //<T> T getInstance();
 }
